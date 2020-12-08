@@ -75,13 +75,13 @@
             },
             {
               "not": {
-                "field": "Microsoft.Sql/servers/properties.collation",
+                "field": "Microsoft.Sql/servers/databases/properties.collation",
                 "in": [ "SQL_Latin1_General_CP1_CI_AS" ]
               }
             },
             {
               "not": {
-                "field": "Microsoft.Sql/servers/properties.storageAccountType",
+                "field": "Microsoft.Sql/servers/databases/properties.storageAccountType",
                 "in": [ "LRS" ]
               }
             } 
