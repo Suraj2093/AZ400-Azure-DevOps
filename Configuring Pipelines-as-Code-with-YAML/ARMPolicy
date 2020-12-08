@@ -1,1 +1,111 @@
-
+{
+    "if": {
+      "anyOf": [
+        {
+          "not": {
+            "anyOf": [
+              {
+                "field": "type",
+                "like": "microsoft.insights/components"
+              },
+              {
+                "field": "type",
+                "like": "microsoft.insights/actiongroups"
+              },
+              {
+                "field": "type",
+                "like": "Microsoft.Sql/servers"
+              },
+              {
+                "field": "type",
+                "like": "Microsoft.Sql/servers/databases"
+              },
+              {
+                "field": "type",
+                "like": "Microsoft.Web/serverFarms"
+              },
+              {
+                "field": "type",
+                "like": "Microsoft.Web/sites"
+              },
+              {
+                "field": "type",
+                "in": [ "microsoft.insights/components", "microsoft.insights/actiongroups", "Microsoft.Sql/servers", "Microsoft.Sql/servers/databases", "Microsoft.Web/serverFarms", "Microsoft.Web/sites" ]
+              }
+            ]
+          }
+        },
+        {
+          "allof": [
+            {
+              "field": "type",
+              "equals": "Microsoft.Sql/servers/databases"
+            },
+            {
+              "not": {
+                "field": "Microsoft.Sql/servers/databases/sku.name",
+                "in": [ "GP_Gen5_2" ]
+              }
+            },
+            {
+              "not": {
+                "field": "Microsoft.Sql/servers/databases/sku.tier",
+                "in": [ "GeneralPurpose" ]
+              }
+            },
+            {
+              "not": {
+                "field": "Microsoft.Sql/servers/databases/sku.family",
+                "in": [ "Gen5" ]
+              }
+            },
+            {
+              "not": {
+                "field": "Microsoft.Sql/servers/databases/sku.capacity",
+                "in": [ "2" ]
+              }
+            }
+          ]
+        },
+        {
+          "allof": [
+            {
+              "field": "kind",
+              "equals": "Microsoft.Sql/servers/databases"
+            },
+            {
+              "not": {
+                "field": "Microsoft.Sql/servers/properties.collation",
+                "in": [ "SQL_Latin1_General_CP1_CI_AS" ]
+              }
+            },
+            {
+              "not": {
+                "field": "Microsoft.Sql/servers/properties.storageAccountType",
+                "in": [ "LRS" ]
+              }
+            } 
+          ]
+        },
+        {
+          "allof": [
+            {
+              "field": "type",
+              "equals": "Microsoft.Web/serverfarms"
+            },
+            {
+              "not": {
+                "field": "Microsoft.Web/serverfarms/sku.name",
+                "in": [ "S1" ]
+              }
+            }
+          ]
+        }
+  
+      ]
+    },
+    "then": {
+      "effect": "deny"
+    }
+  }
+  
