@@ -39,58 +39,6 @@
           "allof": [
             {
               "field": "type",
-              "equals": "Microsoft.Sql/servers/databases"
-            },
-            {
-              "not": {
-                "field": "Microsoft.Sql/servers/databases/sku.name",
-                "in": [ "GP_Gen5" ]
-              }
-            },
-            {
-              "not": {
-                "field": "Microsoft.Sql/servers/databases/sku.tier",
-                "in": [ "GeneralPurpose" ]
-              }
-            },
-            {
-              "not": {
-                "field": "Microsoft.Sql/servers/databases/sku.family",
-                "in": [ "Gen5" ]
-              }
-            },
-            {
-              "not": {
-                "field": "Microsoft.Sql/servers/databases/sku.capacity",
-                "in": [ 2 ]
-              }
-            }
-          ]
-        },
-        {
-          "allof": [
-            {
-              "field": "kind",
-              "equals": "Microsoft.Sql/servers/databases"
-            },
-            {
-              "not": {
-                "field": "Microsoft.Sql/servers/databases/collation",
-                "in": [ "SQL_Latin1_General_CP1_CI_AS" ]
-              }
-            },
-            {
-              "not": {
-                "field": "Microsoft.Sql/servers/databases/storageAccountType",
-                "in": [ "LRS" ]
-              }
-            } 
-          ]
-        },
-        {
-          "allof": [
-            {
-              "field": "type",
               "equals": "Microsoft.Web/serverfarms"
             },
             {
