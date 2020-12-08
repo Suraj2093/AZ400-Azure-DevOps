@@ -39,6 +39,38 @@
           "allof": [
             {
               "field": "type",
+              "equals": "Microsoft.Sql/servers/databases"
+            },
+            {
+              "not": {
+                "field": "Microsoft.Sql/servers/databases/sku.name",
+                "in": [ "GP_Gen5" ]
+              }
+            },
+            {
+              "not": {
+                "field": "Microsoft.Sql/servers/databases/sku.tier",
+                "in": [ "GeneralPurpose" ]
+              }
+            },
+            {
+              "not": {
+                "field": "Microsoft.Sql/servers/databases/sku.family",
+                "in": [ "Gen5" ]
+              }
+            },
+            {
+              "not": {
+                "field": "Microsoft.Sql/servers/databases/sku.capacity",
+                "in": [ 2 ]
+              }
+            }
+          ]
+        },
+        {
+          "allof": [
+            {
+              "field": "type",
               "equals": "Microsoft.Web/serverfarms"
             },
             {
