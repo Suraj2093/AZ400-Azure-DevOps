@@ -1,0 +1,21 @@
+{
+    "Name":  "Monitoring Application Performance with Application Insights RBAC",
+    "Id":  null,
+    "IsCustom":  true,
+    "Description":  "Monitoring Application Performance with Application Insights",
+    "Actions":  [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Web/serverFarms/*",
+        "Microsoft.Sql/servers/*",
+        "Microsoft.Sql/servers/databases/*",
+        "Microsoft.Insights/ActionGroups/Write",
+        "Microsoft.Insights/Components/Write",
+        "Microsoft.Web/sites/*"
+      ],
+      "NotActions":  [
+    ]
+  }
+    
